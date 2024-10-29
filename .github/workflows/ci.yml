@@ -12,5 +12,5 @@ jobs:
               uses: actions/setup-node@v4
               with:
                 node-version: '21'
-            -  name: "Check Node Version"
+            -  name: "Check Node Versions"
                run: node --version
