@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 name: "Sample React CI pipeline/workflow"
 
 on:
@@ -17,3 +18,42 @@ jobs:
                run: node --version
 
             
+=======
+name: "Sample React CI pipeline/workflow"
+
+on:
+    push:
+        branches:
+            - master
+jobs:
+    build-and-test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Setup Node JS"
+              uses: actions/setup-node@v4
+              with:
+                node-version: '21'
+            -  name: "Check Node Versions"
+               run: node --version
+
+            - name: "Clone the Repository"
+              uses: actions/checkout@v2
+
+            - name: "List directories"
+              run: ls
+              
+            - name: "Install dependencies"
+              run: npm install
+
+            - name: "List directories"
+              run: ls
+
+            - name: "Run lint"
+              run: npm run lint
+
+            - name: "Run Test"
+              run: npm test
+
+            - name: "Run build"
+              run: npm run build
+>>>>>>> 722865a121cc1bbc56f9a8f905c85647cefcfe83
