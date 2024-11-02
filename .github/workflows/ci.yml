@@ -4,27 +4,29 @@ on:
     push:
         branches:
             - master
+
 jobs:
     build-and-test:
         runs-on: ubuntu-latest
         steps:
             - name: "Setup Node JS"
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@v3
               with:
                 node-version: '21'
-            -  name: "Check Node Versions"
-               run: node --version
+                
+            - name: "Check Node Versions"
+              run: node --version
 
             - name: "Clone the Repository"
               uses: actions/checkout@v2
 
-            - name: "List directories"
+            - name: "List directories after checkout"
               run: ls
               
             - name: "Install dependencies"
               run: npm install
 
-            - name: "List directories"
+            - name: "List directories after installing"
               run: ls
 
             - name: "Run lint"
@@ -40,4 +42,4 @@ jobs:
               uses: actions/upload-artifact@v3
               with:
                 name: build
-                path: /dist
+                path: dist  # Adjust this path if needed
